@@ -1,25 +1,7 @@
 #ifndef linkedList_H
 #define linkedList_H
 
-template <typename K, typename V> class linkedListNode
-{
-public:
-	linkedListNode(void)
-		: key(), value(), prev(0), next(0)
-	{
-	}
-
-	linkedListNode(const K& newKey)
-		: key(newKey), value(), prev(0), next(0)
-	{
-	}
-
-	K key;
-	V value;
-
-	linkedListNode<K, V>* prev;
-	linkedListNode<K, V>* next;
-};
+#include "linkedListNode.h"
 
 template <typename K, typename V> class linkedList
 {

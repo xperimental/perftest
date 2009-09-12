@@ -170,7 +170,15 @@
 			>
 		</File>
 		<File
+			RelativePath=".\linkedListNode.h"
+			>
+		</File>
+		<File
 			RelativePath=".\perftest.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\roverList.h"
 			>
 		</File>
 		<File

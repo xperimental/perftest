@@ -7,12 +7,13 @@
 #include "time.h"
 
 #include "linkedList.h"
+#include "roverList.h"
 
 using std::cout;
 using std::endl;
 
-#define MAX_ELEMENTS 1000000
-#define RAND_ACCESS 100000
+#define MAX_ELEMENTS 100000
+#define RAND_ACCESS 10000
 
 #define CLOCKS_PER_MS (CLOCKS_PER_SEC / 1000)
 
@@ -89,6 +90,39 @@ void list(int* access)
 	cout << time << "ms" << endl;
 }
 
+void rover(int* access)
+{
+	roverList<int, int> list;
+
+	cout << "rover implementation:" << endl
+		<< "\tinsertion (" << MAX_ELEMENTS << " elements): ";
+	long time = clock();
+	for (int i = 0; i < MAX_ELEMENTS; i++)
+	{
+		list[i] = MAX_ELEMENTS - i;
+	}
+	time = (clock() - time) / CLOCKS_PER_MS;
+	cout << time << "ms" << endl;
+
+	cout << "\trandom access (" << RAND_ACCESS <<" accesses): ";
+	time = clock();
+	for (int i = 0; i < RAND_ACCESS; i++)
+	{
+		list[access[i]] = i;
+	}
+	time = (clock() - time) / CLOCKS_PER_MS;
+	cout << time << "ms" << endl;
+
+	cout << "\tsequential access: ";
+	time = clock();
+	for (int i = 0; i < MAX_ELEMENTS; i++)
+	{
+		list[i] = MAX_ELEMENTS - i;
+	}
+	time = (clock() - time) / CLOCKS_PER_MS;
+	cout << time << "ms" << endl;
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	cout << "Small performance comparison of different dynamic datastructures." << endl;
@@ -103,6 +137,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	stdMap(access);
 	list(access);
+	rover(access);
 
 	delete[] access;
 	return 0;
