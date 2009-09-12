@@ -166,6 +166,10 @@
 	</References>
 	<Files>
 		<File
+			RelativePath=".\linkedList.h"
+			>
+		</File>
+		<File
 			RelativePath=".\perftest.cpp"
 			>
 		</File>
